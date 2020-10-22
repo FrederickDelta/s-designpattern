@@ -19,10 +19,32 @@ public class BrowseHistory {
         return lastItem;
     }
 
-    public List<String> getUrls() {
-        return urls;
+    public Iterator createIterator(){
+        return new ListIterator(this);
     }
-    // public String[] getUrls() {
-    //     return urls;
-    // }
+
+    public class ListIterator implements Iterator {
+        private BrowseHistory history;
+        private int index;
+
+        public ListIterator(BrowseHistory history){
+            this.history = history;
+        }
+        @Override
+        public String current() {
+            return history.urls.get(index);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (index < history.urls.size());
+        }
+
+        @Override
+        public void next() {
+            index++;
+        }
+    }
+
+    // public class ArrayIterator implements Iterator {}
 }

@@ -3,13 +3,15 @@ package com.frederick.iterator;
 public class Main {
     public static void main(String[] args) {
         BrowseHistory history = new BrowseHistory();
-        history.push("a");
-        history.push("b");
-        history.push("c");
+        history.push("https://google.com");
+        history.push("https://youtube.com");
+        history.push("https://twitter.com");
 
-        for(var i = 0; i < history.getUrls().size(); i++){
-            var url = history.getUrls().get(i);
+        Iterator iterator = history.createIterator();
+        while(iterator.hasNext()){
+            var url = iterator.current();
             System.out.println(url);
+            iterator.next();
         }
     }
 }
