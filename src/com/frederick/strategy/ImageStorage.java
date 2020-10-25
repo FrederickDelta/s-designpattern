@@ -1,15 +1,7 @@
 package com.frederick.strategy;
 
 public class ImageStorage {
-    private Compressor compressor;
-    private Filter filter;
-
-    public ImageStorage(Compressor compressor, Filter filter) {
-        this.compressor = compressor;
-        this.filter = filter;
-    }
-
-    public void store(String fileName) {
+    public void store(String fileName, Compressor compressor, Filter filter) {
         // Format: JPEG, PNG ...
         compressor.compress(fileName);
 
