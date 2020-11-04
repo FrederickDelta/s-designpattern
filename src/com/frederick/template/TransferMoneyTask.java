@@ -1,14 +1,12 @@
 package com.frederick.template;
 
-public class TransferMoneyTask {
-    private AuditTrail auditTrail;
-
+public class TransferMoneyTask extends Task {
     public TransferMoneyTask(AuditTrail auditTrail) {
-        this.auditTrail = auditTrail;
+        super(auditTrail);
     }
 
-    public void execute() {
-        auditTrail.record();
+    @Override
+    protected void doExecute() {
         System.out.println("Transfer Money");
     }
 }
