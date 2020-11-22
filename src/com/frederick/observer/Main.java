@@ -13,8 +13,7 @@ public class Main {
         dataSource.addObserver(sheet2);
         dataSource.addObserver(chart1);
         dataSource.addObserver(chart2);
-
-        // dataSource.notifyObservers();
-        dataSource.setValue(1);
+        
+        dataSource.setValue(2);
     }
 }

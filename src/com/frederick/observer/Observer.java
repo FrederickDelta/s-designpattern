@@ -1,5 +1,5 @@
 package com.frederick.observer;
 
 public interface Observer {
-    void Update();
+    void Update(int value);
 }
