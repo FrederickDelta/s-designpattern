@@ -14,6 +14,7 @@ public class Main {
         dataSource.addObserver(chart1);
         dataSource.addObserver(chart2);
 
-        dataSource.notifyObservers();
+        // dataSource.notifyObservers();
+        dataSource.setValue(1);
     }
 }
