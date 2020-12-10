@@ -1,17 +1,25 @@
 package com.frederick.mediator;
 
-public class ArticlesDialogBox extends DialogBox {
-    private ListBox articlesListBox = new ListBox(this);
-    private TextBox titleTextBox = new TextBox(this);
-    private Button saveButton = new Button(this);
+public class ArticlesDialogBox {
+    private ListBox articlesListBox = new ListBox();
+    private TextBox titleTextBox = new TextBox();
+    private Button saveButton = new Button();
 
-    @Override
-    public void changed(UIControl control) {
-        if (control == articlesListBox) {
-            articleSelected();
-        } else if (control == titleTextBox) {
-            titleChanged();
-        }
+    public ArticlesDialogBox() {
+        // Anonymous class
+//        articlesListBox.addObserver(new Observer() {
+//            @Override
+//            public void Update() {
+//                articleSelected();
+//            }
+//        });
+
+        // Lambda expression
+//        articlesListBox.addObserver(() -> articleSelected());
+
+        // Direct reference
+        articlesListBox.addObserver(this::articleSelected);
+        titleTextBox.addObserver(this::titleChanged);
     }
 
     private void articleSelected() {
