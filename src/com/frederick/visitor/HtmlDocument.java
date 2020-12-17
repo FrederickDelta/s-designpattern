@@ -10,13 +10,8 @@ public class HtmlDocument {
         nodes.add(node);
     }
 
-    public void highlight() {
+    public void execute(Operation operation) {
         for (var node : nodes)
-            node.highlight();
-    }
-
-    public void plainText() {
-        for (var node : nodes)
-            node.plainText();
+            node.execute(operation);
     }
 }
