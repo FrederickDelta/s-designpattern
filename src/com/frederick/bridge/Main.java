@@ -2,11 +2,13 @@ package com.frederick.bridge;
 
 public class Main {
     public static void main(String[] args) {
-        RemoteControl sonyRC  = new SonyRemoteControl();
+        var sonyTV = new SonyTV();
+
+        var sonyRC  = new RemoteControl(sonyTV);
         sonyRC.turnOn();
         sonyRC.turnOff();
 
-        AdvancedRemoteControl sonyARC = new SonyAdvancedRemoteControl();
+        var sonyARC = new AdvancedRemoteControl(sonyTV);
         sonyARC.setChannel(1);
     }
 }
