@@ -3,27 +3,39 @@ package com.frederick.iterator_ex;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductCollection implements Iterator<Product> {
+public class ProductCollection {
     private List<Product> products = new ArrayList<>();
 
     public void add(Product product) {
         products.add(product);
     }
 
-    private int index;
-
-    @Override
-    public Product current() {
-        return products.get(index);
+    public Iterator<Product> createIterator() {
+        return new ProductIterator(this);
     }
 
-    @Override
-    public boolean hasNext() {
-        return (index < products.size());
+    private class ProductIterator implements Iterator<Product> {
+        private ProductCollection collection;
+        private int index;
+
+        public ProductIterator(ProductCollection collection) {
+            this.collection = collection;
+        }
+
+        @Override
+        public Product current() {
+            return collection.products.get(index);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return (index < collection.products.size());
+        }
+
+        @Override
+        public void next() {
+            index++;
+        }
     }
 
-    @Override
-    public void next() {
-        index++;
-    }
 }
